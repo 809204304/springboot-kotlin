@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss} [%thread] %magenta(%-5level) %green([%-50.50class]) >>> %cyan(%msg) %n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>../logs/kotlin/kotlin.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+
+    <logger name="jdbc.audit" level="OFF"/>
+    <logger name="jdbc.sqlonly" level="OFF"/>
+    <logger name="jdbc.connection" level="OFF"/>
+    <logger name="jdbc.resultset" level="OFF"/>
+    <logger name="log4jdbc.debug" level="OFF"/>
+    <logger name="jdbc.sqltiming" level="OFF" />
+    <springProfile name="dev">
+        <logger name="jdbc.sqltiming" level="DEBUG" />
+    </springProfile>
+
+    <logger name="org.hibernate.validator" level="ERROR"/>
+    <logger name="org.hibernate.SQL" level="ERROR"/>
+    <logger name="org.hibernate" level="ERROR"/>
+
+
+
+    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework.web" level="WARN"/>
+    <logger name="org.springframework.cache" level="WARN"/>
+    <logger name="javax.activation" level="WARN"/>
+    <logger name="com.zaxxer" level="WARN"/>
+    <logger name="org.hibernate.validator" level="ERROR"/>
+
+
+    <logger name="io.netty" level="WARN"/>
+    <logger name="org.xnio" level="WARN"/>
+    <logger name="_org.springframework.web.servlet.HandlerMapping.Mappings" level="WARN"/>
+
+
+    <root level="INFO">
+        <appender-ref ref="console"/>
+        <appender-ref ref="rollingFile"/>
+    </root>
+</configuration>

@@ -1,0 +1,27 @@
+# Spring配置
+spring:
+  # 数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/xinyi?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password:
+  data:
+    redis:
+      database: 8
+      host: 127.0.0.1
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          max-wait: -1ms
+          min-idle: 0
+        shutdown-timeout: 100ms
+      password:
+      port: 6379
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+

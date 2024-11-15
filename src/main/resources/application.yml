@@ -1,0 +1,24 @@
+# 开发环境配置
+server:
+  port: 8888
+  servlet:
+    # 应用的访问路径
+    context-path: /api
+
+# Spring配置
+spring:
+  profiles:
+#    active: '@profile.active@'
+    active: dev
+
+
+# mybatis-plus相关配置
+mybatis-plus:
+  # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
+  mapper-locations: classpath:/mapper/**/*Mapper.xml
+  configuration:
+    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
+    map-underscore-to-camel-case: true
+  global-config:
+    # 关闭MP3.0自带的banner
+    banner: false
